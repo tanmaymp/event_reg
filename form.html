@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>Form</title>
+	<script>
+		function validateform()
+		{
+			var u=document.form1.uid.value;
+			var p=document.form1.pswd.value;
+			var a=document.form1.add.value;
+			var n=document.form1.uname.value;
+			var c=document.form1.Country.value;
+			var g=document.form1.Gender;
+			var z=document.form1.zip.value;
+			var e=document.form1.email.value;
+			var l=document.form1.lang;
+			var n1=/^[A-Za-z]+$/;
+			var n2=/^[0-9]+$/;
+			var vemail=/^([A-Za-z]+)([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+			if(u==""||u==null)
+			{
+				alert("Enter Userid");
+				document.form1.uid.focus();
+				return false;
+			}
+			if(p==""||p==null)
+			{
+				alert("please enter password");
+				document.form1.pswd.focus();
+				return false;
+			}
+			if(p.length<6)
+			{
+				alert("enter password of length between 6 and 10");
+				document.form1.pswd.focus();
+				return false;
+			}
+			if(n==""||n==null)
+			{
+				alert("please enter name");
+				document.form1.uname.focus();
+				return false;
+			}
+			if(!n1.test(n))
+			{
+				alert("please enter alphabate only");
+				document.form1.uname.focus();
+				return false;
+			}
+			if(!(vemail.test(e)))
+			{
+			alert("Please Enter (Valid) email id");
+			document.form1.eid.focus();
+			return false;
+			}
+			if(e==""||e==null)
+			{
+				alert("please enter the Email id");
+		        document.form1.eid.focus();
+				return false;
+			}
+			
+			if(a==""||a==null)
+			{
+				alert("please enter Address");
+				document.form1.add.focus();
+				return false;
+			}
+			if(c=="Default")
+			{
+				alert("please enter country");
+				document.form1.Country.focus();
+				return false;
+			}
+			if(!n2.test(z))
+			{
+				alert("no alphabate or special character in zip code");
+				document.form1.zip.focus();
+				return false;
+			}
+			for(var i=0;i<g.length;i++)
+			{
+				if(g[i].checked)
+				break;
+			}
+			for(var i=0;i<g.length;i++)
+            if(g[i].checked)
+			break;
+			if(i==g.length)
+			{
+				alert("please enter your gender");
+				document.form1.Gender.focus();
+				return false;
+			}
+			for(var i=0;i<l.length;i++)
+            if(l[i].checked)
+			break;
+			if(i==l.length)
+			{
+				alert("please enter your Language");
+				document.form1.lang.focus();
+				return false;
+			}
+			return true;
+			}
+               
+	</script>
+</head>
+<body>
+<form  name="form1" method="post" onsubmit="return validateform()">
+Userid:
+<input type="text" name="uid" autofocus placeholder="Userid"><br>
+<br>
+Password:
+<input type="Password" name="pswd"  placeholder="Password"><br>
+<br>
+Name:
+<input type="text" name="uname"  placeholder="Name"><br>
+<br>
+Address:
+<input type="text" name="add"  placeholder="Address"><br>
+<br>
+Country:
+<select name="Country">
+<option value="Default" selected>Choose Country</option>
+<option value="i">India</option>
+<option value="ge">Germany</option>
+<option value="fr">France</option>
+<option value="it">Italy</option>
+<option value="us">USA</option>
+<option value="ch">China</option>
+</select>
+<br>
+<br>
+Zip Code:
+<input type="text" name="zip"  placeholder="Zip Code eg:009202"><br>
+<br>
+Email:
+<input type="text" name="email"  placeholder="eg:ac@gmail.com"><br>
+<br>
+Gender:<br>
+<input type="radio" name="Gender" value="Male">Male
+<input type="radio" name="Gender" value="Female">Female
+<br>
+<br>
+Language:<br>
+<br>
+<input type="checkbox" name="Language" value="eng" >English<br>
+<input type="checkbox" name="Language" value="ger" >German<br>
+<input type="checkbox" name="Language" value="fra" >French<br>
+<br>
+<input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
